@@ -34,11 +34,11 @@
       @extend .p-three;
       padding: 0 1rem;
       border-bottom: 0.3rem solid transparent;
-      color: $whiteColor;
+      color: $greyBrownColor;
       text-transform: uppercase;
 
       &:hover {
-        color: $whiteColor;
+        color: $primaryColor;
         border-bottom: 0.3rem solid $whiteColor;
       }
     }
