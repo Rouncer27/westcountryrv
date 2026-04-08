@@ -1,0 +1,77 @@
+@use "../../../styles/abstracts/" as *;
+@use "../../../styles/global/headlines";
+@use "../../../styles/global/paragraphs";
+
+.page-cta {
+  position: relative;
+
+  padding-bottom: 12rem;
+  background-color: $secondaryColor;
+
+  &-bgimage {
+    position: relative;
+    min-height: 40rem;
+    overflow: hidden;
+
+    @media (min-width: 768px) {
+      min-height: 50rem;
+    }
+
+    @media (min-width: 1024px) {
+      min-height: 57rem;
+    }
+
+    &-container {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      z-index: 1;
+      overflow: hidden;
+
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        z-index: 1;
+      }
+    }
+  }
+
+  &-headlines {
+    width: 100%;
+
+    h2 {
+      color: $whiteColor;
+      font-weight: 600;
+    }
+
+    h3 {
+      color: $shadowColor;
+      font-weight: 500;
+    }
+  }
+
+  &-content {
+    margin-top: 5rem;
+
+    * {
+      color: $whiteColor !important;
+    }
+
+    li::before {
+      color: $whiteColor !important;
+    }
+  }
+
+  &-links {
+    width: 100%;
+    margin-top: 9rem;
+  }
+}

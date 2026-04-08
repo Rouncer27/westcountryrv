@@ -32,3 +32,37 @@ export const Intro_Points_Query = `
         }
     }
 `;
+
+export const Page_Cta_Query = `
+   	 pageCta: pageCtaComponent {
+        title
+        subTitle
+        content
+        buttonOneText
+        buttonOneLink {
+            edges {
+                node {
+                    uri
+                }
+            }
+        }
+        buttonTwoText
+        buttonTwoLink {
+            edges {
+                node {
+                    uri
+                }
+            }
+        }
+        image {
+            node {
+                sourceUrl
+                altText
+                mediaDetails {
+                    width
+                    height
+                }
+            }
+        }
+    }
+`;
