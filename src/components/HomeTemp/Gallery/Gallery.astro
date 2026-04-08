@@ -1,0 +1,51 @@
+---
+// @ts-nocheck
+import { Image } from "astro:assets";
+import "./gallery.scss";
+
+const { content, mainHeroImage, imageGallery } = Astro.props.data;
+
+const imageSrc = mainHeroImage?.node?.sourceUrl;
+const imageAlt = mainHeroImage?.node?.altText || "";
+---
+
+<div class="gallery">
+  <div class="gallery-main">
+    <div class="gallery-main-image">
+      <Image
+        src={imageSrc}
+        alt={imageAlt}
+        format="webp"
+        widths={[800, 1200, 1600, 2000]}
+        sizes="100vw"
+        loading="eager"
+        inferSize={true}
+        class=""
+      />
+    </div>
+    <div class="gallery-main-content" set:html={content} />
+  </div>
+
+  <div class="gallery-images">
+    {
+      imageGallery.map((image) => {
+        const galImageSrc = image?.image?.node?.sourceUrl;
+        const galImageAlt = image?.image?.node?.altText || "";
+        return (
+          <div class="gallery-image">
+            <Image
+              src={galImageSrc}
+              alt={galImageAlt}
+              format="webp"
+              widths={[800, 1200, 1600, 2000]}
+              sizes="100vw"
+              loading="eager"
+              inferSize={true}
+              class=""
+            />
+          </div>
+        );
+      })
+    }
+  </div>
+</div>

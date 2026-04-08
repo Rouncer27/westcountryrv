@@ -1,0 +1,16 @@
+.gallery {
+  &-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  &-image {
+    width: calc(100%);
+
+    @media (min-width: 768px) {
+      width: calc(50%);
+    }
+  }
+}

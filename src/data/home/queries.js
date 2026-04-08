@@ -124,3 +124,31 @@ export const About_Intro_Query = `
         }
     }
 `;
+
+export const Gallery_Query = `
+   	 gallery: galleryComponent {
+        content
+        mainHeroImage {
+            node {
+                sourceUrl
+                altText
+                mediaDetails {
+                    width
+                    height
+                }
+            }
+        }
+        imageGallery {
+            image {
+                node {
+                    sourceUrl
+                    altText
+                    mediaDetails {
+                        width
+                        height
+                    }
+                }
+            }
+        }
+    }
+`;
