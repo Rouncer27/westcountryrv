@@ -1,0 +1,13 @@
+@use "../../../styles/abstracts/" as *;
+@use "../../../styles/global/headlines";
+@use "../../../styles/global/paragraphs";
+
+.location-map {
+  position: relative;
+
+  &-link {
+    position: absolute;
+    bottom: 7.5rem;
+    right: 0;
+  }
+}

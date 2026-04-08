@@ -3,12 +3,14 @@ import Layout from "../layouts/Layout.astro";
 import HeroIntro from "../components/HomeTemp/HeroIntro/HeroIntro.astro";
 import IntroPoints from "../components/HomeTemp/IntroPoints/IntroPoints.astro";
 import PageCta from "../components/HomeTemp/PageCta/PageCta.astro";
+import LocationMap from "../components/HomeTemp/LocationMap/LocationMap.astro";
 
 import { Page_Seo_Query } from "../data/page/queries";
 import {
   Hero_Intro_Query,
   Intro_Points_Query,
   Page_Cta_Query,
+  Location_Map_Query,
 } from "../data/home/queries";
 
 const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
@@ -18,17 +20,18 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
   },
   body: JSON.stringify({
     query: `
-		query homePageQuery {
-			page(id: "/", idType: URI) {
-				${Page_Seo_Query}
-        		homeTemplate {
-          			${Hero_Intro_Query}
-					${Intro_Points_Query}
-					${Page_Cta_Query}
-        		}
-			}
-		}
-	`,
+		  query homePageQuery {
+		    page(id: "/", idType: URI) {
+          ${Page_Seo_Query}
+            homeTemplate {
+              ${Hero_Intro_Query}
+              ${Intro_Points_Query}
+              ${Page_Cta_Query}
+              ${Location_Map_Query}
+            }
+          }
+        }
+	  `,
   }),
 });
 
@@ -47,4 +50,5 @@ const {
   <HeroIntro data={homeTemplate.heroIntro} />
   <IntroPoints data={homeTemplate.introPoints} />
   <PageCta data={homeTemplate.pageCta} />
+  <LocationMap data={homeTemplate.locationMap} />
 </Layout>

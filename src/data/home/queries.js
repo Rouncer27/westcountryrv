@@ -66,3 +66,26 @@ export const Page_Cta_Query = `
         }
     }
 `;
+
+export const Location_Map_Query = `
+   	 locationMap: locationMapComponent {
+        buttonText
+        buttonLink {
+            edges {
+                node {
+                    uri
+                }
+            }
+        }
+        mapAreaImage {
+            node {
+                sourceUrl
+                altText
+                mediaDetails {
+                    width
+                    height
+                }
+            }
+        }
+    }
+`;
