@@ -1,0 +1,38 @@
+@use "../../../styles/abstracts/" as *;
+@use "../../../styles/global/headlines";
+@use "../../../styles/global/paragraphs";
+
+.hero-intro {
+  position: relative;
+  min-height: 45rem;
+  overflow: hidden;
+
+  @media (min-width: 768px) {
+    min-height: 65rem;
+  }
+
+  @media (min-width: 1024px) {
+    min-height: 70rem;
+  }
+
+  &-background {
+    position: absolute;
+    top: -5rem;
+    bottom: 0;
+    left: -5rem;
+    right: -5rem;
+    z-index: 1;
+    overflow: hidden;
+
+    &-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: 1;
+    }
+  }
+}

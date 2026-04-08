@@ -1,0 +1,36 @@
+---
+import "./heroIntro.scss";
+import { Image } from "astro:assets";
+
+const { image } = Astro.props.data;
+
+const heroImageSrc = image?.node?.sourceUrl;
+const heroAlt = image?.node?.altText || "";
+---
+
+<div class="hero-intro">
+  <div class="hero-intro-background">
+    <Image
+      src={heroImageSrc}
+      alt={heroAlt}
+      format="webp"
+      widths={[800, 1200, 1600, 2000]}
+      sizes="100vw"
+      loading="eager"
+      inferSize={true}
+      class="hero-intro-background-img"
+    />
+  </div>
+</div>
+
+<script>
+  // @ts-nocheck
+  import { gsap } from "gsap";
+  const image = document.querySelectorAll(".hero-intro-background img");
+  const tl = gsap.timeline();
+  tl.add("start").from(
+    image,
+    { filter: "blur(100px)", duration: 2.2 },
+    "start",
+  );
+</script>
