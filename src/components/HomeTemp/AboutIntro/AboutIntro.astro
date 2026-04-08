@@ -1,0 +1,42 @@
+---
+import { Image } from "astro:assets";
+import Button from "../../common/shared/Button.astro";
+import Wrapper from "../../common/shared/Wrapper.astro";
+import "./aboutIntro.scss";
+
+const { title, content, buttonText, buttonLink, image, icon } =
+  Astro.props.data;
+
+const imageSrc = image?.node?.sourceUrl;
+const imageAlt = image?.node?.altText || "";
+const iconSrc = icon?.node?.sourceUrl;
+const iconAlt = icon?.node?.altText || "";
+---
+
+<div class="about-intro">
+  <Wrapper classes="about-intro-wrapper">
+    <div class="about-intro-content">
+      <div class="about-intro-content-title">
+        <h2>{title}</h2>
+      </div>
+      <div class="about-intro-content-paragraph" set:html={content} />
+      <div class="about-intro-content-botton">
+        <Button ele="a" btnstyle="one" href={buttonLink.edges[0].node.uri}
+          >{buttonText}</Button
+        >
+      </div>
+    </div>
+    <div class="about-intro-image">
+      <Image
+        src={imageSrc}
+        alt={imageAlt}
+        format="webp"
+        widths={[800, 1200, 1600, 2000]}
+        sizes="100vw"
+        loading="eager"
+        inferSize={true}
+        class=""
+      />
+    </div>
+  </Wrapper>
+</div>

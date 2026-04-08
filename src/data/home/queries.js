@@ -89,3 +89,38 @@ export const Location_Map_Query = `
         }
     }
 `;
+
+export const About_Intro_Query = `
+   	 aboutIntro: aboutIntroComponent {
+        title
+        content
+        buttonText
+        buttonLink {
+            edges {
+                node {
+                    uri
+                }
+            }
+        }
+        image {
+            node {
+                sourceUrl
+                altText
+                mediaDetails {
+                    width
+                    height
+                }
+            }
+        }
+        icon {
+            node {
+                sourceUrl
+                altText
+                mediaDetails {
+                    width
+                    height
+                }
+            }
+        }
+    }
+`;

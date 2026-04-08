@@ -4,6 +4,7 @@ import HeroIntro from "../components/HomeTemp/HeroIntro/HeroIntro.astro";
 import IntroPoints from "../components/HomeTemp/IntroPoints/IntroPoints.astro";
 import PageCta from "../components/HomeTemp/PageCta/PageCta.astro";
 import LocationMap from "../components/HomeTemp/LocationMap/LocationMap.astro";
+import AboutIntro from "../components/HomeTemp/AboutIntro/AboutIntro.astro";
 
 import { Page_Seo_Query } from "../data/page/queries";
 import {
@@ -11,6 +12,7 @@ import {
   Intro_Points_Query,
   Page_Cta_Query,
   Location_Map_Query,
+  About_Intro_Query,
 } from "../data/home/queries";
 
 const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
@@ -28,6 +30,7 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
               ${Intro_Points_Query}
               ${Page_Cta_Query}
               ${Location_Map_Query}
+              ${About_Intro_Query}
             }
           }
         }
@@ -51,4 +54,5 @@ const {
   <IntroPoints data={homeTemplate.introPoints} />
   <PageCta data={homeTemplate.pageCta} />
   <LocationMap data={homeTemplate.locationMap} />
+  <AboutIntro data={homeTemplate.aboutIntro} />
 </Layout>
