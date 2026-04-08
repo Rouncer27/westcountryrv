@@ -3,18 +3,18 @@
 @use "./paragraphs";
 
 .btn {
-  @include utils.font-sizer(1.6, 2, 76.8, 150, 1.8);
+  @include utils.font-sizer(1.8, 2.2, 76.8, 150, 1.8);
   position: relative;
   display: inline-block;
-  padding: 1rem 3em;
+  padding: 2rem 3.5rem;
   transition: all 0.3s ease;
-  border: 0.1rem solid $primaryColor;
+  border: 0.2rem solid $whiteColor;
   border-radius: 1;
   background-color: $primaryColor;
-  box-shadow: 3px 3px 2px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: none;
   color: $whiteColor;
   font-family: $primaryFont;
-  font-weight: 500;
+  font-weight: 600;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.3;
@@ -29,8 +29,7 @@
 
   &:hover {
     cursor: pointer;
-    background-color: $tertiaryColor;
-    border-color: $tertiaryColor;
+    background-color: $secondaryColor;
     color: $whiteColor;
   }
 
@@ -39,8 +38,8 @@
     cursor: not-allowed;
 
     &:hover {
-      background-color: $tertiaryColor;
-      border-color: $tertiaryColor;
+      background-color: $secondaryColor;
+      border-color: $secondaryColor;
       color: $whiteColor;
       cursor: not-allowed;
     }
@@ -54,13 +53,12 @@
 .btn-two {
   @extend .btn;
   background-color: $secondaryColor;
-  border-color: $secondaryColor;
+  border-color: $whiteColor;
   color: $whiteColor;
 
   &:hover {
     cursor: pointer;
-    background-color: $tertiaryColor;
-    border-color: $tertiaryColor;
+    background-color: $primaryColor;
     color: $whiteColor;
   }
 }
