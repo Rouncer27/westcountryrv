@@ -12,3 +12,23 @@ export const Hero_Intro_Query = `
         }
     }
 `;
+
+export const Intro_Points_Query = `
+   	 introPoints: introPointsComponent {
+        title
+        subTitle
+        points {
+            content
+            icon {
+                node {
+                    sourceUrl
+                    altText
+                    mediaDetails {
+                        width
+                        height
+                    }
+                }
+            }
+        }
+    }
+`;

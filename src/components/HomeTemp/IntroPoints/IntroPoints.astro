@@ -1,0 +1,47 @@
+---
+// @ts-nocheck
+import { Image } from "astro:assets";
+import Headline from "../../common/shared/Headline.astro";
+import Wrapper from "../../common/shared/Wrapper.astro";
+import "./introPoints.scss";
+
+const { title, subTitle, points } = Astro.props.data;
+---
+
+<div class="intro-points">
+  <Wrapper classes="intro-points-wrapper">
+    <div class="intro-points-headlines">
+      <Headline ele="h2" hlstyle="one">{title}</Headline>
+      <Headline ele="h3" hlstyle="two">{subTitle}</Headline>
+    </div>
+    <div class="intro-points-container">
+      {
+        points.map((point) => {
+          const iconSrc = point?.icon?.node?.sourceUrl;
+          const iconAlt = point?.icon?.node?.altText || "";
+
+          return (
+            <div class="intro-points-point">
+              <div class="intro-points-point-icon">
+                <Image
+                  src={iconSrc}
+                  alt={iconAlt}
+                  format="webp"
+                  widths={[800, 1200, 1600, 2000]}
+                  sizes="100vw"
+                  loading="eager"
+                  inferSize={true}
+                  class=""
+                />
+              </div>
+              <div
+                class="intro-points-point-content"
+                set:html={point.content}
+              />
+            </div>
+          );
+        })
+      }
+    </div>
+  </Wrapper>
+</div>
