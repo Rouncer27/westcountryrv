@@ -37,56 +37,64 @@ h6 {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
   font-family: var.$secondaryFont;
+  line-height: var.$baseLineHeight;
   font-size: 1.8rem;
   font-weight: normal;
-  line-height: var.$baseLineHeight;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  line-height: 1.25;
 }
 
 h1 {
-  @include utils.font-sizer(3.5, 4.5, 76.8, 150, 3.2);
-  line-height: 1.21;
+  @include utils.font-sizer(4, 4.8, 76.8, 150, 3.6);
+  line-height: 1.35;
 }
 
 h2 {
-  @include utils.font-sizer(3, 3.5, 76.8, 150, 2.8);
-  line-height: 1.34;
+  @include utils.font-sizer(3, 4, 76.8, 150, 2.8);
+  line-height: 1.25;
 }
 
 h3 {
-  @include utils.font-sizer(2.2, 2.8, 76.8, 150, 2.2);
-  line-height: 1.31;
+  @include utils.font-sizer(2.4, 2.8, 76.8, 150, 2.4);
+  line-height: 1.36;
 }
 
 h4 {
-  @include utils.font-sizer(2, 2.3, 76.8, 150, 1.8);
+  @include utils.font-sizer(2, 2.4, 76.8, 150, 2);
+  line-height: 1.25;
 }
 
 h5 {
   @include utils.font-sizer(2, 2.2, 76.8, 150, 1.8);
+  line-height: 1.25;
 }
 
 h6 {
   @include utils.font-sizer(1.8, 2, 76.8, 160, 1.8);
+  line-height: 1.25;
 }
 
 p {
   font-family: var.$primaryFont;
-  @include utils.font-sizer(1.8, 2.1, 76.8, 150, 1.8);
+  @include utils.font-sizer(1.8, 2.2, 76.8, 150, 1.8);
   margin: 0;
   margin-bottom: 1.5em;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
   letter-spacing: normal;
-  line-height: 1.33;
+  line-height: 1.45;
 }
 
 a {
-  @include utils.font-sizer(1.8, 2.1, 76.8, 150, 1.8);
+  @include utils.font-sizer(1.8, 2.2, 76.8, 150, 1.8);
   text-decoration: none;
   color: var.$primaryColor;
   font-weight: normal;
   transition: all 0.3s ease;
+  line-height: 1.45;
 }
 
 a:hover {
@@ -106,7 +114,8 @@ ul,
 li {
   margin: 0;
   padding: 0;
-  font-size: 1.8rem;
+  @include utils.font-sizer(1.8, 2.2, 76.8, 150, 1.8);
+  font-family: var.$primaryFont;
   list-style-type: none;
 }
 
