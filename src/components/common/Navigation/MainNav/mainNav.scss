@@ -30,7 +30,7 @@
       }
 
       li {
-        @extend .p-two;
+        @extend .p-three;
         margin: 0 1rem;
 
         @media (min-width: 1025px) {
@@ -38,12 +38,12 @@
         }
 
         a {
-          @extend .p-two;
+          @extend .p-three;
           display: inline-block;
           padding: 1.5rem 0.5rem;
           border-top: 0.2rem solid transparent;
           border-bottom: 0.2rem solid transparent;
-          color: $whiteColor;
+          color: $greyBrownColor;
           text-transform: uppercase;
 
           @media (min-width: 1025px) {
