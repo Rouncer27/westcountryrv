@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Hero from "../components/BookTemp/Hero/Hero.astro";
 import BoldIntro from "../components/BookTemp/BoldIntro/BoldIntro.astro";
 import MountainCallout from "../components/BookTemp/MountainCallout/MountainCallout.astro";
+import BookingEmbed from "../components/BookTemp/BookingEmbed/BookingEmbed.astro";
 
 import { Page_Seo_Query } from "../data/page/queries";
 import {
@@ -59,4 +60,5 @@ const {
   <Hero data={bookTemplate.hero} />
   <BoldIntro data={bookTemplate.boldIntro} />
   <MountainCallout data={bookTemplate.mountainCallout} />
+  <BookingEmbed />
 </Layout>
