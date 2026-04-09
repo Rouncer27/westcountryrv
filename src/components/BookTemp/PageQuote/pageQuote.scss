@@ -1,0 +1,18 @@
+@use "../../../styles/abstracts/" as *;
+@use "../../../styles/global/headlines";
+@use "../../../styles/global/paragraphs";
+
+.page-quote {
+  position: relative;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  background-color: $secondaryColor;
+
+  &-content {
+    text-align: center;
+    p {
+      @extend .hl-three;
+      color: $whiteColor;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+---
+import Wrapper from "../../common/shared/Wrapper.astro";
+import "./pageQuote.scss";
+
+const { content } = Astro.props.data;
+---
+
+<div class="page-quote">
+  <Wrapper classes="page-quote-wrapper">
+    <div class="page-quote-content" set:html={content} />
+  </Wrapper>
+</div>

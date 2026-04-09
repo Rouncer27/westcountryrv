@@ -107,3 +107,9 @@ export const Image_Row_Two_Query = `
         }
     }
 `;
+
+export const Page_Quote_Query = `
+   	pageQuote: pageQuoteComponent {
+        content
+    }
+`;
