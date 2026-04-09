@@ -6,6 +6,7 @@ import MountainCallout from "../components/BookTemp/MountainCallout/MountainCall
 import BookingEmbed from "../components/BookTemp/BookingEmbed/BookingEmbed.astro";
 import ImageRow from "../components/BookTemp/ImageRow/ImageRow.astro";
 import PageQuote from "../components/BookTemp/PageQuote/PageQuote.astro";
+import OutroHero from "../components/BookTemp/OutroHero/OutroHero.astro";
 
 import { Page_Seo_Query } from "../data/page/queries";
 import {
@@ -15,6 +16,7 @@ import {
   Image_Row_Query,
   Page_Quote_Query,
   Image_Row_Two_Query,
+  Outro_Hero_Query,
 } from "../data/book/queries";
 
 // 2️⃣ Get the actual page data by slug
@@ -39,6 +41,7 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
                 ${Image_Row_Query}
                 ${Page_Quote_Query}
                 ${Image_Row_Two_Query}
+                ${Outro_Hero_Query}
             }
           }                 
         }
@@ -72,4 +75,5 @@ const {
   <ImageRow data={bookTemplate.imageRow} />
   <PageQuote data={bookTemplate.pageQuote} />
   <ImageRow data={bookTemplate.imageRowTwo} />
+  <OutroHero data={bookTemplate.outroHero} />
 </Layout>

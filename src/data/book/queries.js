@@ -113,3 +113,18 @@ export const Page_Quote_Query = `
         content
     }
 `;
+
+export const Outro_Hero_Query = `
+   	outroHero: outroHeroComponent {
+        image {
+            node {
+                sourceUrl
+                altText
+                mediaDetails {
+                    width
+                    height
+                }
+            }
+        }
+    }
+`;
