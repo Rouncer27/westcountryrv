@@ -31,3 +31,9 @@ export const Bold_Intro_Query = `
         }
     }
 `;
+
+export const Mountain_Callout_Query = `
+   	mountainCallout: mountainCalloutComponent {
+        content
+    }
+`;

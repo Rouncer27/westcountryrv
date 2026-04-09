@@ -2,9 +2,14 @@
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/BookTemp/Hero/Hero.astro";
 import BoldIntro from "../components/BookTemp/BoldIntro/BoldIntro.astro";
+import MountainCallout from "../components/BookTemp/MountainCallout/MountainCallout.astro";
 
 import { Page_Seo_Query } from "../data/page/queries";
-import { Hero_Query, Bold_Intro_Query } from "../data/book/queries";
+import {
+  Hero_Query,
+  Bold_Intro_Query,
+  Mountain_Callout_Query,
+} from "../data/book/queries";
 
 // 2️⃣ Get the actual page data by slug
 const { uri } = Astro.params;
@@ -24,6 +29,7 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
               bookTemplate {
                 ${Hero_Query}
                 ${Bold_Intro_Query}
+                ${Mountain_Callout_Query}
             }
           }                 
         }
@@ -52,4 +58,5 @@ const {
 >
   <Hero data={bookTemplate.hero} />
   <BoldIntro data={bookTemplate.boldIntro} />
+  <MountainCallout data={bookTemplate.mountainCallout} />
 </Layout>

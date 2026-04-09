@@ -1,0 +1,20 @@
+---
+import Wrapper from "../../common/shared/Wrapper.astro";
+import Wysiwyg from "../../common/shared/Wysiwyg.astro";
+import "./mountainCallout.scss";
+
+const { content } = Astro.props.data;
+
+import mountainTear from "../../../assets/mountains-tear.png";
+---
+
+<div class="mountain-callout">
+  <Wrapper classes="mountain-callout-wrapper">
+    <Wysiwyg>
+      <div class="mountain-callout-content" set:html={content} />
+    </Wysiwyg>
+  </Wrapper>
+  <div class="mountain-callout-graphic">
+    <img src={mountainTear.src} alt={"Mountain Tear background"} />
+  </div>
+</div>
