@@ -29,3 +29,10 @@ export const Intro_Icon_Query = `
         }
     }
 `;
+
+export const About_Us_Query = `
+   	aboutUs: aboutUsComponent {
+        title
+        content
+    }
+`;

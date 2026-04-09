@@ -2,9 +2,14 @@
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/AboutTemp/Hero/Hero.astro";
 import IntroIcon from "../components/AboutTemp/IntroIcon/IntroIcon.astro";
+import AboutUs from "../components/AboutTemp/AboutUs/AboutUs.astro";
 
 import { Page_Seo_Query } from "../data/page/queries";
-import { Hero_Query, Intro_Icon_Query } from "../data/about/queries";
+import {
+  Hero_Query,
+  Intro_Icon_Query,
+  About_Us_Query,
+} from "../data/about/queries";
 
 // 2️⃣ Get the actual page data by slug
 const { uri } = Astro.params;
@@ -24,6 +29,7 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
               aboutTemplate {
                 ${Hero_Query}
                 ${Intro_Icon_Query}
+                ${About_Us_Query}
             }
           }                 
         }
@@ -51,4 +57,5 @@ const {
 >
   <Hero data={aboutTemplate.hero} />
   <IntroIcon data={aboutTemplate.introIcon} />
+  <AboutUs data={aboutTemplate.aboutUs} />
 </Layout>
