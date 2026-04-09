@@ -37,3 +37,73 @@ export const Mountain_Callout_Query = `
         content
     }
 `;
+
+export const Image_Row_Query = `
+   	imageRow: imageRowComponent {
+        imageOne {
+            node {
+                sourceUrl
+                altText
+                mediaDetails {
+                    width
+                    height
+                }
+            }
+        }
+        imageTwo {
+            node {
+                sourceUrl
+                altText
+                mediaDetails {
+                    width
+                    height
+                }
+            }
+        }
+        imageThree {
+            node {
+                sourceUrl
+                altText
+                mediaDetails {
+                    width
+                    height
+                }
+            }
+        }
+    }
+`;
+
+export const Image_Row_Two_Query = `
+   	imageRowTwo: imageRowComponentTwo {
+        imageOne {
+            node {
+                sourceUrl
+                altText
+                mediaDetails {
+                    width
+                    height
+                }
+            }
+        }
+        imageTwo {
+            node {
+                sourceUrl
+                altText
+                mediaDetails {
+                    width
+                    height
+                }
+            }
+        }
+        imageThree {
+            node {
+                sourceUrl
+                altText
+                mediaDetails {
+                    width
+                    height
+                }
+            }
+        }
+    }
+`;
