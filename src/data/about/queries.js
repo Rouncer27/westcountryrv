@@ -12,3 +12,20 @@ export const Hero_Query = `
         }
     }
 `;
+
+export const Intro_Icon_Query = `
+   	introIcon: iconIntroComponent {
+        title
+        content
+        icon {
+            node {
+                sourceUrl
+                altText
+                mediaDetails {
+                    width
+                    height
+                }
+            }
+        }
+    }
+`;
