@@ -1,0 +1,38 @@
+---
+import { Image } from "astro:assets";
+import Headline from "../../common/shared/Headline.astro";
+import Wrapper from "../../common/shared/Wrapper.astro";
+import "./boldIntro.scss";
+
+const { title, subTitle, subTitleTwo, content, icon } = Astro.props.data;
+
+const iconSrc = icon?.node?.sourceUrl;
+const iconAlt = icon?.node?.altText || "";
+---
+
+<div class="bold-content">
+  <Wrapper classes="bold-content-wrapper">
+    <div class="bold-content-headlines">
+      <Headline ele="h2" hlstyle="one">{title}</Headline>
+      <Headline ele="h3" hlstyle="two">{subTitle}</Headline>
+    </div>
+    <div class="bold-content-icon">
+      <div class="bold-content-icon-container">
+        <Image
+          src={iconSrc}
+          alt={iconAlt}
+          format="webp"
+          widths={[800, 1200, 1600, 2000]}
+          sizes="100vw"
+          loading="eager"
+          inferSize={true}
+          class=""
+        />
+      </div>
+    </div>
+    <div class="bold-content-headlines">
+      <Headline ele="h3" hlstyle="two">{subTitleTwo}</Headline>
+    </div>
+    <div class="bold-content-paragraph" set:html={content} />
+  </Wrapper>
+</div>

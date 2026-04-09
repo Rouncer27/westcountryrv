@@ -53,9 +53,11 @@ const newLogoOptions = {
     },
   },
 };
+
+const { isHome } = Astro.props;
 ---
 
-<header class="main-header">
+<header class={`main-header${isHome ? " main-header-home" : ""}`}>
   <Wrapper classes="main-header-wrapper">
     <div class="main-header-logo">
       <h1>

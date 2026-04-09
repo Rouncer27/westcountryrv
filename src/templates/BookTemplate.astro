@@ -1,7 +1,55 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Hero from "../components/BookTemp/Hero/Hero.astro";
+import BoldIntro from "../components/BookTemp/BoldIntro/BoldIntro.astro";
+
+import { Page_Seo_Query } from "../data/page/queries";
+import { Hero_Query, Bold_Intro_Query } from "../data/book/queries";
+
+// 2️⃣ Get the actual page data by slug
+const { uri } = Astro.params;
+
+const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
+  method: "POST",
+  headers: {
+    "content-type": "application/json",
+  },
+  body: JSON.stringify({
+    query: `
+		query bookTempQuery($slug: ID!) {
+			page(id: $slug, idType: URI) {
+				${Page_Seo_Query}
+          template {
+            ... on Template_Book {
+              bookTemplate {
+                ${Hero_Query}
+                ${Bold_Intro_Query}
+            }
+          }                 
+        }
+			}
+		}
+	`,
+    variables: { slug: `${uri}` },
+  }),
+});
+
+const {
+  data: {
+    page: {
+      seoMetaTags,
+      template: { bookTemplate },
+    },
+  },
+} = await response.json();
 ---
 
-<Layout>
-  <h1>Book Template</h1>
+<Layout
+  metaImg={seoMetaTags.seoMetaInformation.metaImage.sourceUrl}
+  metaTitle={seoMetaTags.seoMetaInformation.metaTitle}
+  metaDescription={seoMetaTags.seoMetaInformation.metaDescription}
+  isHome={false}
+>
+  <Hero data={bookTemplate.hero} />
+  <BoldIntro data={bookTemplate.boldIntro} />
 </Layout>

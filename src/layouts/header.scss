@@ -2,11 +2,15 @@
 @use "../styles/global/paragraphs";
 
 .main-header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+  position: relative;
   z-index: 10000;
+
+  &-home {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
 
   &-wrapper {
     position: relative;
