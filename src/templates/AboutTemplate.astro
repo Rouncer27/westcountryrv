@@ -3,12 +3,20 @@ import Layout from "../layouts/Layout.astro";
 import Hero from "../components/AboutTemp/Hero/Hero.astro";
 import IntroIcon from "../components/AboutTemp/IntroIcon/IntroIcon.astro";
 import AboutUs from "../components/AboutTemp/AboutUs/AboutUs.astro";
+import ContentLinks from "../components/AboutTemp/ContentLinks/ContentLinks.astro";
+import AboutBio from "../components/AboutTemp/AboutBio/AboutBio.astro";
+import ImageRow from "../components/AboutTemp/ImageRow/ImageRow.astro";
+import OutroHero from "../components/AboutTemp/OutroHero/OutroHero.astro";
 
 import { Page_Seo_Query } from "../data/page/queries";
 import {
   Hero_Query,
   Intro_Icon_Query,
   About_Us_Query,
+  Content_Links_Query,
+  About_Bio_Query,
+  Image_Row_Query,
+  Outro_Hero_Query,
 } from "../data/about/queries";
 
 // 2️⃣ Get the actual page data by slug
@@ -30,6 +38,10 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
                 ${Hero_Query}
                 ${Intro_Icon_Query}
                 ${About_Us_Query}
+                ${Content_Links_Query}
+                ${About_Bio_Query}
+                ${Image_Row_Query}
+                ${Outro_Hero_Query}
             }
           }                 
         }
@@ -58,4 +70,8 @@ const {
   <Hero data={aboutTemplate.hero} />
   <IntroIcon data={aboutTemplate.introIcon} />
   <AboutUs data={aboutTemplate.aboutUs} />
+  <ContentLinks data={aboutTemplate.contentLinks} />
+  <AboutBio data={aboutTemplate.aboutBio} />
+  <ImageRow data={aboutTemplate.imageRow} />
+  <OutroHero data={aboutTemplate.outroHero} />
 </Layout>

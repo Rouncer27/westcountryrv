@@ -1,0 +1,24 @@
+---
+import "./outroHero.scss";
+import { Image } from "astro:assets";
+
+const { image } = Astro.props.data;
+
+const heroImageSrc = image?.node?.sourceUrl;
+const heroAlt = image?.node?.altText || "";
+---
+
+<div class="outro-hero">
+  <div class="outro-hero-image">
+    <Image
+      src={heroImageSrc}
+      alt={heroAlt}
+      format="webp"
+      widths={[800, 1200, 1600, 2000]}
+      sizes="100vw"
+      loading="eager"
+      inferSize={true}
+      class=""
+    />
+  </div>
+</div>
