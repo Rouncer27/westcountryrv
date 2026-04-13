@@ -1,0 +1,21 @@
+@use "../../../styles/abstracts/" as *;
+@use "../../../styles/global/headlines";
+@use "../../../styles/global/paragraphs";
+
+.intro-links {
+  &-title {
+    width: 100%;
+    text-align: center;
+  }
+
+  &-content {
+    width: 100%;
+    text-align: center;
+  }
+
+  &-buttons {
+    width: 100%;
+    margin: 5rem auto;
+    text-align: center;
+  }
+}

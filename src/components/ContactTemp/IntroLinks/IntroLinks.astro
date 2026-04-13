@@ -1,10 +1,32 @@
 ---
+import Button from "../../common/shared/Button.astro";
+import Headline from "../../common/shared/Headline.astro";
 import Wrapper from "../../common/shared/Wrapper.astro";
 import "./introLinks.scss";
+
+const {
+  title,
+  content,
+  buttonOneText,
+  buttonOneLink,
+  buttonTwoText,
+  buttonTwoLink,
+} = Astro.props.data;
 ---
 
-<div>
-  <Wrapper>
-    <h1>Intro Links</h1>
+<div class="intro-links">
+  <Wrapper classes="intro-links-wrapper">
+    <div class="intro-links-title">
+      <Headline ele="h1" hlstyle="one">{title}</Headline>
+    </div>
+    <div class="intro-links-content" set:html={content} />
+    <div class="intro-links-buttons">
+      <Button ele="a" href={buttonOneLink.edges[0].node.uri}
+        >{buttonOneText}</Button
+      >
+      <Button ele="a" btnstyle="two" href={buttonTwoLink.edges[0].node.uri}
+        >{buttonTwoText}</Button
+      >
+    </div>
   </Wrapper>
 </div>
