@@ -15,6 +15,7 @@
 
     p {
       @extend .p-one;
+      color: $secondaryColor;
     }
   }
 
@@ -28,6 +29,7 @@
 
     p {
       @extend .p-one;
+      color: $secondaryColor;
     }
   }
 }
