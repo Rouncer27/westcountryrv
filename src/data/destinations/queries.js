@@ -68,3 +68,28 @@ export const Location_Map_Query = `
         }
     }
 `;
+
+export const Image_Row_Query = `
+   	imageRow: imageRowComponent {
+        imageOne {
+            node {
+                sourceUrl
+                altText
+                mediaDetails {
+                    width
+                    height
+                }
+            }
+        }
+        imageTwo {
+            node {
+                sourceUrl
+                altText
+                mediaDetails {
+                    width
+                    height
+                }
+            }
+        }
+    }
+`;

@@ -4,6 +4,7 @@ import Hero from "../components/DestinationsTemp/Hero/Hero.astro";
 import IntroIcon from "../components/DestinationsTemp/IntroIcon/IntroIcon.astro";
 import ContentLinks from "../components/DestinationsTemp/ContentLinks/ContentLinks.astro";
 import LocationMap from "../components/DestinationsTemp/LocationMap/LocationMap.astro";
+import ImageRow from "../components/DestinationsTemp/ImageRow/ImageRow.astro";
 
 import { Page_Seo_Query } from "../data/page/queries";
 import {
@@ -11,6 +12,7 @@ import {
   Intro_Icon_Query,
   Content_Links_Query,
   Location_Map_Query,
+  Image_Row_Query,
 } from "../data/destinations/queries";
 
 // 2️⃣ Get the actual page data by slug
@@ -33,6 +35,7 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
                 ${Intro_Icon_Query}
                 ${Content_Links_Query}
                 ${Location_Map_Query}
+                ${Image_Row_Query}
             }
           }                 
         }
@@ -62,4 +65,5 @@ const {
   <IntroIcon data={destinationsTemplate.introIcon} />
   <ContentLinks data={destinationsTemplate.contentLinks} />
   <LocationMap data={destinationsTemplate.locationMap} />
+  <ImageRow data={destinationsTemplate.imageRow} />
 </Layout>
