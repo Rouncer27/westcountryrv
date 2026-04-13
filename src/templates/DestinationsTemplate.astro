@@ -5,6 +5,9 @@ import IntroIcon from "../components/DestinationsTemp/IntroIcon/IntroIcon.astro"
 import ContentLinks from "../components/DestinationsTemp/ContentLinks/ContentLinks.astro";
 import LocationMap from "../components/DestinationsTemp/LocationMap/LocationMap.astro";
 import ImageRow from "../components/DestinationsTemp/ImageRow/ImageRow.astro";
+import ImageContent from "../components/DestinationsTemp/ImageContent/ImageContent.astro";
+import SideBySide from "../components/DestinationsTemp/SideBySide/SideBySide.astro";
+import OutroHero from "../components/DestinationsTemp/OutroHero/OutroHero.astro";
 
 import { Page_Seo_Query } from "../data/page/queries";
 import {
@@ -13,6 +16,7 @@ import {
   Content_Links_Query,
   Location_Map_Query,
   Image_Row_Query,
+  Outro_Hero_Query,
 } from "../data/destinations/queries";
 
 // 2️⃣ Get the actual page data by slug
@@ -36,6 +40,7 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
                 ${Content_Links_Query}
                 ${Location_Map_Query}
                 ${Image_Row_Query}
+                ${Outro_Hero_Query}
             }
           }                 
         }
@@ -66,4 +71,7 @@ const {
   <ContentLinks data={destinationsTemplate.contentLinks} />
   <LocationMap data={destinationsTemplate.locationMap} />
   <ImageRow data={destinationsTemplate.imageRow} />
+  <ImageContent />
+  <SideBySide />
+  <OutroHero data={destinationsTemplate.outroHero} />
 </Layout>

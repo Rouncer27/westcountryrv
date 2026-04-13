@@ -93,3 +93,19 @@ export const Image_Row_Query = `
         }
     }
 `;
+
+export const Outro_Hero_Query = `
+   	outroHero: outroHeroComponent {
+    content
+        image {
+            node {
+                sourceUrl
+                altText
+                mediaDetails {
+                    width
+                    height
+                }
+            }
+        }
+    }
+`;
