@@ -94,6 +94,34 @@ export const Image_Row_Query = `
     }
 `;
 
+export const Image_Content_Query = `
+   	imageContent: imageContentComponent {
+        title
+        content
+        buttonText
+        buttonLink
+        image {
+            node {
+                sourceUrl
+                altText
+                mediaDetails {
+                    width
+                    height
+                }
+            }
+        }
+    }
+`;
+
+export const Side_By_Side_Query = `
+   	sideBySide: sideBySideComponent {
+        leftTitle
+        leftContent
+        rightTitle
+        rightContent
+    }
+`;
+
 export const Outro_Hero_Query = `
    	outroHero: outroHeroComponent {
     content
