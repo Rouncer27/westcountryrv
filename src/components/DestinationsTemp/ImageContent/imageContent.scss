@@ -1,0 +1,25 @@
+@use "../../../styles/abstracts/" as *;
+@use "../../../styles/global/headlines";
+@use "../../../styles/global/paragraphs";
+
+.image-content {
+  margin: 5rem auto;
+
+  &-image {
+    width: calc(35% - 2.5rem);
+    margin-right: 2.5rem;
+  }
+
+  &-main {
+    width: calc(65% - 2rem);
+    margin-left: 2rem;
+
+    h2 {
+      color: $secondaryColor;
+    }
+
+    p {
+      @extend .p-one;
+    }
+  }
+}
