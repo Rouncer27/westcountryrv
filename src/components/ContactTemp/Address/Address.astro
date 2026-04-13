@@ -1,0 +1,15 @@
+---
+import "./address.scss";
+import Wrapper from "../../common/shared/Wrapper.astro";
+import Wysiwyg from "../../common/shared/Wysiwyg.astro";
+
+const { address } = Astro.props.data;
+---
+
+<div class="address">
+  <Wrapper classes="address-wrapper">
+    <Wysiwyg>
+      <div class="address-content" set:html={address} />
+    </Wysiwyg>
+  </Wrapper>
+</div>

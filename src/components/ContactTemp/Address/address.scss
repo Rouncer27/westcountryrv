@@ -1,0 +1,18 @@
+@use "../../../styles/abstracts/" as *;
+@use "../../../styles/global/headlines";
+@use "../../../styles/global/paragraphs";
+
+.address {
+  padding: 5.3rem 0;
+  background-color: $secondaryColor;
+
+  &-content {
+    p {
+      color: $whiteColor;
+
+      &:last-of-type {
+        margin: 0;
+      }
+    }
+  }
+}
