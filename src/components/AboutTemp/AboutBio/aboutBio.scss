@@ -1,0 +1,35 @@
+@use "../../../styles/abstracts/" as *;
+@use "../../../styles/global/headlines";
+@use "../../../styles/global/paragraphs";
+
+.about-bio {
+  padding-top: 10rem;
+  &-image {
+    width: calc(25% - 2rem);
+    margin-top: 2.5rem;
+    margin-right: 2rem;
+  }
+
+  &-content {
+    width: calc(75% - 2rem);
+    margin-left: 2rem;
+
+    &-title {
+      width: 100%;
+
+      h2 {
+        margin-top: 0;
+        color: $secondaryColor;
+      }
+    }
+
+    &-bio {
+      width: 100%;
+
+      p {
+        @extend .p-one;
+        color: $secondaryColor;
+      }
+    }
+  }
+}

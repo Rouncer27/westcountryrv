@@ -1,7 +1,34 @@
 ---
+import { Image } from "astro:assets";
+import Wrapper from "../../common/shared/Wrapper.astro";
 import "./aboutBio.scss";
+import Headline from "../../common/shared/Headline.astro";
+
+const { image, title, bio } = Astro.props.data;
+
+const imageSrc = image?.node?.sourceUrl;
+const imageAlt = image?.node?.altText || "";
 ---
 
-<div>
-  <h1>About Bio</h1>
+<div class="about-bio">
+  <Wrapper classes="about-bio-wrapper">
+    <div class="about-bio-image">
+      <Image
+        src={imageSrc}
+        alt={imageAlt}
+        format="webp"
+        widths={[800, 1200, 1600, 2000]}
+        sizes="100vw"
+        loading="eager"
+        inferSize={true}
+        class=""
+      />
+    </div>
+    <div class="about-bio-content">
+      <div class="about-bio-content-title">
+        <Headline ele="h2" hlstyl="one">{title}</Headline>
+      </div>
+      <div class="about-bio-content-bio" set:html={bio} />
+    </div>
+  </Wrapper>
 </div>
