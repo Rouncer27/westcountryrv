@@ -1,0 +1,25 @@
+@use "../../../styles/abstracts/" as *;
+@use "../../../styles/global/headlines";
+@use "../../../styles/global/paragraphs";
+
+.content-links {
+  &-title {
+    width: 100%;
+
+    h2 {
+      color: $primaryColor;
+    }
+  }
+
+  &-paragraphs {
+    width: 100%;
+
+    p {
+      @extend .p-one;
+    }
+  }
+
+  &-buttons {
+    width: 100%;
+  }
+}
