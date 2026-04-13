@@ -134,7 +134,7 @@ const ContactForm = () => {
           <Textarea
             handler={(event) => handleOnChange(event, setFormData, formData)}
             value={formData.comments}
-            label="Comments"
+            label="Please enter your questions in the space below and we would be pleased to contact your regarding our RV rental services:* "
             id="comments"
             size="full"
             placeholder="Comments"
@@ -154,7 +154,7 @@ const ContactForm = () => {
           )}
           <ReCAPTCHA
             ref={recaptchaRef}
-            sitekey={`6Lcgb4ksAAAAADQGNBqcN4SLp-Wnta2ZaLmCc5bU`}
+            sitekey={`gjdfk`}
             onChange={onChangeRecaptcha}
             onExpired={() => setIsCaptchaVerified(false)}
           />

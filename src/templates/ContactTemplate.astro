@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/ContactTemp/Hero/Hero.astro";
 import IntroLinks from "../components/ContactTemp/IntroLinks/IntroLinks.astro";
+import ContactFormDisplay from "../components/ContactTemp/ContactFormDisplay/ContactFormDisplay.astro";
 import Address from "../components/ContactTemp/Address/Address.astro";
 import OutroHero from "../components/ContactTemp/OutroHero/OutroHero.astro";
 
@@ -9,6 +10,7 @@ import { Page_Seo_Query } from "../data/page/queries";
 import {
   Hero_Query,
   Outro_Hero_Query,
+  Contact_Form_Display_Query,
   Address_Query,
   Intro_Links_Query,
 } from "../data/contact/queries";
@@ -31,6 +33,7 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
               contactTemplate {
                 ${Hero_Query}
                 ${Intro_Links_Query}
+                ${Contact_Form_Display_Query}
                 ${Address_Query}
                 ${Outro_Hero_Query}
             }
@@ -60,6 +63,7 @@ const {
 >
   <Hero data={contactTemplate.hero} />
   <IntroLinks data={contactTemplate.introLinks} />
+  <ContactFormDisplay data={contactTemplate.contactFormDisplay} />
   <Address data={contactTemplate.address} />
   <OutroHero data={contactTemplate.outroHero} />
 </Layout>

@@ -36,6 +36,13 @@ export const Intro_Links_Query = `
     }
 `;
 
+export const Contact_Form_Display_Query = `
+   	contactFormDisplay: contactFormDisplayComponent {
+        displayContactForm
+        content
+    }
+`;
+
 export const Address_Query = `
    	address: addressComponent {
         address
