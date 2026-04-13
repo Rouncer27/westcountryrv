@@ -1,8 +1,21 @@
 ---
+import Headline from "../../common/shared/Headline.astro";
 import Wrapper from "../../common/shared/Wrapper.astro";
 import "./sideBySide.scss";
+
+const { leftTitle, leftContent, rightTitle, rightContent } = Astro.props.data;
 ---
 
-<div>
-  <Wrapper><h1>Side By Side</h1></Wrapper>
+<div class="side-by-side">
+  <Wrapper classes="side-by-side-wrapper">
+    <div class="side-by-side-left">
+      <Headline ele="h2" hlstyle="two">{leftTitle}</Headline>
+      <div set:html={leftContent} />
+    </div>
+
+    <div class="side-by-side-right">
+      <Headline ele="h2" hlstyle="two">{rightTitle}</Headline>
+      <div set:html={rightContent} />
+    </div>
+  </Wrapper>
 </div>
