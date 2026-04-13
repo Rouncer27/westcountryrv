@@ -1,0 +1,32 @@
+---
+// @ts-nocheck
+import Button from "../../common/shared/Button.astro";
+import Wrapper from "../../common/shared/Wrapper.astro";
+import Wysiwyg from "../../common/shared/Wysiwyg.astro";
+import "./contentLinks.scss";
+
+const { title, content, buttons } = Astro.props.data;
+---
+
+<div class="content-links">
+  <Wrapper classes="content-links-wrapper">
+    <Wysiwyg>
+      <div class="content-links-paragraphs" set:html={content} />
+    </Wysiwyg>
+    <div class="content-links-buttons">
+      {
+        buttons.map((button, index) => {
+          return (
+            <Button
+              ele="a"
+              btnstyle={index % 2 === 0 ? "two" : "one"}
+              href={button.link.edges[0].node.uri}
+            >
+              {button.text}
+            </Button>
+          );
+        })
+      }
+    </div>
+  </Wrapper>
+</div>

@@ -1,0 +1,34 @@
+@use "../../../styles/abstracts/" as *;
+@use "../../../styles/global/headlines";
+@use "../../../styles/global/paragraphs";
+
+.intro-icon {
+  &-title {
+    width: 100%;
+    text-align: center;
+
+    h1 {
+      font-weight: 600;
+    }
+  }
+
+  &-content {
+    width: 100%;
+    text-align: center;
+
+    p {
+      @extend .hl-two;
+      color: $primaryColor;
+    }
+  }
+
+  &-image {
+    width: 100%;
+
+    &-container {
+      width: 100%;
+      max-width: 13rem;
+      margin: 0 auto;
+    }
+  }
+}

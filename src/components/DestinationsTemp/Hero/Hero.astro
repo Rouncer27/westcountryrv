@@ -1,0 +1,29 @@
+---
+import { Image } from "astro:assets";
+import "./hero.scss";
+
+const { image } = Astro.props.data;
+
+const heroImageSrc = image?.node?.sourceUrl;
+const heroAlt = image?.node?.altText || "";
+
+import heroMountain from "../../../assets/hero-header-graphic.png";
+---
+
+<div class="hero">
+  <div class="hero-image">
+    <Image
+      src={heroImageSrc}
+      alt={heroAlt}
+      format="webp"
+      widths={[800, 1200, 1600, 2000]}
+      sizes="100vw"
+      loading="eager"
+      inferSize={true}
+      class=""
+    />
+  </div>
+  <div class="hero-graphic">
+    <img src={heroMountain.src} alt={"Mountain background"} />
+  </div>
+</div>

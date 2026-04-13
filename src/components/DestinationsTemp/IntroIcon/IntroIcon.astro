@@ -1,0 +1,34 @@
+---
+import { Image } from "astro:assets";
+import Headline from "../../common/shared/Headline.astro";
+import Wrapper from "../../common/shared/Wrapper.astro";
+import "./introIcon.scss";
+
+const { title, content, icon } = Astro.props.data;
+
+const iconSrc = icon?.node?.sourceUrl;
+const iconAlt = icon?.node?.altText || "";
+---
+
+<div class="intro-icon">
+  <Wrapper classes="intro-icon-wrapper">
+    <div class="intro-icon-title">
+      <Headline ele="h1" hlstyle="one">{title}</Headline>
+    </div>
+    <div class="intro-icon-content" set:html={content} />
+    <div class="intro-icon-image">
+      <div class="intro-icon-image-container">
+        <Image
+          src={iconSrc}
+          alt={iconAlt}
+          format="webp"
+          widths={[800, 1200, 1600, 2000]}
+          sizes="100vw"
+          loading="eager"
+          inferSize={true}
+          class=""
+        />
+      </div>
+    </div>
+  </Wrapper>
+</div>

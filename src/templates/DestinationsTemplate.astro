@@ -1,7 +1,61 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Hero from "../components/DestinationsTemp/Hero/Hero.astro";
+import IntroIcon from "../components/DestinationsTemp/IntroIcon/IntroIcon.astro";
+import ContentLinks from "../components/DestinationsTemp/ContentLinks/ContentLinks.astro";
+
+import { Page_Seo_Query } from "../data/page/queries";
+import {
+  Hero_Query,
+  Intro_Icon_Query,
+  Content_Links_Query,
+} from "../data/destinations/queries";
+
+// 2️⃣ Get the actual page data by slug
+const { uri } = Astro.params;
+
+const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
+  method: "POST",
+  headers: {
+    "content-type": "application/json",
+  },
+  body: JSON.stringify({
+    query: `
+		query destinationsTempQuery($slug: ID!) {
+			page(id: $slug, idType: URI) {
+				${Page_Seo_Query}
+          template {
+            ... on Template_Destinations {
+              destinationsTemplate {
+                ${Hero_Query}
+                ${Intro_Icon_Query}
+                ${Content_Links_Query}
+            }
+          }                 
+        }
+			}
+		}
+	`,
+    variables: { slug: `${uri}` },
+  }),
+});
+
+const {
+  data: {
+    page: {
+      seoMetaTags,
+      template: { destinationsTemplate },
+    },
+  },
+} = await response.json();
 ---
 
-<Layout>
-  <h1>Destinations Template</h1>
+<Layout
+  metaImg={seoMetaTags.seoMetaInformation.metaImage.sourceUrl}
+  metaTitle={seoMetaTags.seoMetaInformation.metaTitle}
+  metaDescription={seoMetaTags.seoMetaInformation.metaDescription}
+>
+  <Hero data={destinationsTemplate.hero} />
+  <IntroIcon data={destinationsTemplate.introIcon} />
+  <ContentLinks data={destinationsTemplate.contentLinks} />
 </Layout>
