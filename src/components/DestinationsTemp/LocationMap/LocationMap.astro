@@ -1,0 +1,31 @@
+---
+import { Image } from "astro:assets";
+import "./locationMap.scss";
+import Button from "../../common/shared/Button.astro";
+
+const { buttonText, buttonLink, mapAreaImage } = Astro.props.data;
+
+const imageSrc = mapAreaImage?.node?.sourceUrl;
+const imageAlt = mapAreaImage?.node?.altText || "";
+---
+
+<div class="location-map">
+  <div class="location-map-container">
+    <Image
+      src={imageSrc}
+      alt={imageAlt}
+      format="webp"
+      widths={[800, 1200, 1600, 2000]}
+      sizes="100vw"
+      loading="eager"
+      inferSize={true}
+      class=""
+    />
+  </div>
+
+  <div class="location-map-link">
+    <Button ele="a" btnstyle="one" href={buttonLink.edges[0].node.uri}>
+      {buttonText}
+    </Button>
+  </div>
+</div>
