@@ -1,0 +1,17 @@
+---
+import Wysiwyg from "../../common/shared/Wysiwyg.astro";
+
+const { question, answer } = Astro.props;
+---
+
+<div class="faqs-section-item">
+  <div class="faqs-section-item-title">
+    <p>
+      <span class="faqs-section-item-title-question">{question}</span>
+      <span class="faqs-section-item-title-toggle-icon">+</span>
+    </p>
+  </div>
+  <Wysiwyg classes="faqs-section-item-content">
+    <div class="faqs-section-item-content-inner" set:html={answer} />
+  </Wysiwyg>
+</div>

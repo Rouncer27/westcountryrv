@@ -1,7 +1,54 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Hero from "../components/FaqTemp/Hero/Hero.astro";
+import Faqs from "../components/FaqTemp/Faqs/Faqs.astro";
+
+import { Page_Seo_Query } from "../data/page/queries";
+import { Hero_Query, Faqs_Query } from "../data/faq/queries";
+
+// 2️⃣ Get the actual page data by slug
+const { uri } = Astro.params;
+
+const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
+  method: "POST",
+  headers: {
+    "content-type": "application/json",
+  },
+  body: JSON.stringify({
+    query: `
+		query faqTempQuery($slug: ID!) {
+			page(id: $slug, idType: URI) {
+				${Page_Seo_Query}
+          template {
+            ... on Template_Faq {
+              faqTemplate {
+                ${Hero_Query}
+                ${Faqs_Query}
+            }
+          }                 
+        }
+			}
+		}
+	`,
+    variables: { slug: `${uri}` },
+  }),
+});
+
+const {
+  data: {
+    page: {
+      seoMetaTags,
+      template: { faqTemplate },
+    },
+  },
+} = await response.json();
 ---
 
-<Layout>
-  <h1>Faq Template</h1>
+<Layout
+  metaImg={seoMetaTags.seoMetaInformation.metaImage.sourceUrl}
+  metaTitle={seoMetaTags.seoMetaInformation.metaTitle}
+  metaDescription={seoMetaTags.seoMetaInformation.metaDescription}
+>
+  <Hero data={faqTemplate.hero} />
+  <Faqs data={faqTemplate.faqs} />
 </Layout>

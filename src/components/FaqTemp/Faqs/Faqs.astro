@@ -1,0 +1,72 @@
+---
+// @ts-nocheck
+import Button from "../../common/shared/Button.astro";
+import Headline from "../../common/shared/Headline.astro";
+import Wrapper from "../../common/shared/Wrapper.astro";
+import Wysiwyg from "../../common/shared/Wysiwyg.astro";
+import FaqsItem from "./FaqsItem.astro";
+import "./faqs.scss";
+
+const { title, subTitle, faqs } = Astro.props.data;
+
+// 1️⃣ Server-safe function to strip HTML
+const stripHtml = (html) => html.replace(/<[^>]+>/g, "").trim();
+
+// 2️⃣ JSON-LD Schema for FAQ
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: stripHtml(faq.answer),
+    },
+  })),
+};
+
+// 3️⃣ Stringify JSON-LD
+const jsonLd = JSON.stringify(faqSchema, null, 2);
+---
+
+<div class="faqs-section">
+  <Wrapper classes="faqs-section-wrapper">
+    <div class="faqs-section-title">
+      <Headline ele="h1" hlstyle="one">{title}</Headline>
+      <Headline ele="h2" hlstyle="two">{subTitle}</Headline>
+    </div>
+    {
+      faqs.map((faq) => {
+        return <FaqsItem question={faq.question} answer={faq.answer} />;
+      })
+    }
+  </Wrapper>
+</div>
+
+<!-- 4️⃣ Inline JSON-LD Schema -->
+<script type="application/ld+json" is:inline set:html={jsonLd} />
+
+<script>
+  // @ts-nocheck
+  document.addEventListener("DOMContentLoaded", () => {
+    const items = document.querySelectorAll(".faqs-section-item");
+
+    items.forEach((item) => {
+      const title = item.querySelector(".faqs-section-item-title");
+      const content = item.querySelector(".faqs-section-item-content");
+      const icon = item.querySelector(".faqs-section-item-title-toggle-icon");
+
+      // Initial collapsed state
+      content.style.maxHeight = "0px";
+      content.style.overflow = "hidden";
+      content.style.transition = "max-height 0.4s ease";
+
+      title.addEventListener("click", () => {
+        const isOpen = item.classList.toggle("open");
+        content.style.maxHeight = isOpen ? content.scrollHeight + "px" : "0px";
+        if (icon) icon.textContent = isOpen ? "-" : "+";
+      });
+    });
+  });
+</script>

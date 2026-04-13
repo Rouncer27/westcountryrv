@@ -1,0 +1,66 @@
+@use "../../../styles/abstracts/" as *;
+@use "../../../styles/global/headlines";
+@use "../../../styles/global/paragraphs";
+
+.faqs-section {
+  @media (min-width: 768px) {
+    padding: 5rem 0;
+  }
+
+  &-title {
+    width: 100%;
+    margin-bottom: 7rem;
+    text-align: center;
+
+    h1 {
+      font-weight: 600;
+    }
+
+    h2 {
+      @extend .hl-two;
+      color: $shadowColor;
+      font-weight: 500;
+    }
+  }
+
+  &-item {
+    width: 100%;
+    margin-bottom: 2rem;
+
+    &-title {
+      width: 100%;
+      padding: 2rem;
+      background-color: $secondaryColor;
+      cursor: pointer;
+
+      p {
+        @extend .p-one;
+        display: flex;
+        justify-content: space-between;
+        margin: 0;
+        color: $whiteColor;
+      }
+    }
+
+    &-content {
+      width: 100%;
+      background-color: #fff;
+
+      &-inner {
+        padding: 3.6rem;
+
+        p,
+        a,
+        li {
+          @extend .p-three;
+        }
+
+        a {
+          &:hover {
+            color: $accentColor;
+          }
+        }
+      }
+    }
+  }
+}
