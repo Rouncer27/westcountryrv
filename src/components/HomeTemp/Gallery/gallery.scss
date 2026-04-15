@@ -7,14 +7,48 @@
     position: relative;
     margin-bottom: 1.5rem;
 
+    &-image {
+      position: relative;
+      min-height: 50rem;
+
+      @media (min-width: 768px) {
+        min-height: 65rem;
+      }
+
+      &-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+          z-index: 1;
+        }
+      }
+    }
+
     &-content {
       position: absolute;
       left: 0;
-      bottom: 13.5rem;
+      bottom: 2.5rem;
       width: 100%;
       max-width: 95rem;
       padding: 3.5rem 5rem;
       background: rgba(123, 100, 86, 0.8);
+      z-index: 100;
+
+      @media (min-width: 768px) {
+        bottom: 13.5rem;
+      }
 
       p {
         @extend .hl-three;
@@ -37,10 +71,12 @@
   &-image {
     position: relative;
     width: calc(100%);
+    margin-bottom: 2rem;
     min-height: 40rem;
 
     @media (min-width: 768px) {
       width: calc(50%);
+      margin-bottom: 0;
       min-height: 40rem;
     }
 
@@ -71,10 +107,14 @@
   }
 
   &-image:nth-of-type(2n + 1) {
-    margin-right: 0.75rem;
+    @media (min-width: 768px) {
+      margin-right: 0.75rem;
+    }
   }
 
   &-image:nth-of-type(2n + 2) {
-    margin-left: 0.75rem;
+    @media (min-width: 768px) {
+      margin-left: 0.75rem;
+    }
   }
 }
