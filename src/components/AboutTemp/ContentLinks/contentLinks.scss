@@ -2,8 +2,8 @@
 @use "../../../styles/global/headlines";
 @use "../../../styles/global/paragraphs";
 
-.content-links {
-  &-title {
+.content-links.content-links-about {
+  .content-links-title {
     width: 100%;
 
     h2 {
@@ -11,7 +11,7 @@
     }
   }
 
-  &-paragraphs {
+  .content-links-paragraphs {
     width: 100%;
 
     p {
@@ -19,7 +19,15 @@
     }
   }
 
-  &-buttons {
+  .content-links-buttons {
     width: 100%;
+
+    a {
+      margin-right: 5rem;
+
+      @media (min-width: 768px) {
+        margin-right: 0;
+      }
+    }
   }
 }
