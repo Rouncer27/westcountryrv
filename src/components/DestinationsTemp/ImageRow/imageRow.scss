@@ -1,8 +1,8 @@
-.image-row {
+.image-row.image-row-destinations {
   margin-top: 1.6rem;
   margin-bottom: 1.6rem;
 
-  &-wrapper {
+  .image-row-wrapper {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -27,9 +27,14 @@
     }
   }
 
-  &-image {
+  .image-row-image {
     position: relative;
     height: 41rem;
+    margin-bottom: 2.5rem;
+
+    @media (min-width: 768px) {
+      margin-bottom: 0;
+    }
 
     &-inner {
       position: absolute;
