@@ -3,8 +3,26 @@
 @use "../../../styles/global/paragraphs";
 
 .intro-points {
+  position: relative;
   padding-top: 2rem;
   padding-bottom: 2rem;
+  background: linear-gradient(
+    to bottom,
+    #fff 0%,
+    #fff 60%,
+    #ece8e6 60%,
+    #ece8e6 100%
+  );
+
+  @media (min-width: 768px) {
+    background: linear-gradient(
+      to bottom,
+      #fff 0%,
+      #fff 70%,
+      #ece8e6 70%,
+      #ece8e6 100%
+    );
+  }
 
   @media (min-width: 768px) {
     padding-top: 8rem;
@@ -31,10 +49,12 @@
   }
 
   &-container {
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
+    z-index: 1000;
   }
 
   &-point {
@@ -48,6 +68,28 @@
     &-icon {
       max-width: 13rem;
       margin-bottom: 1.5rem;
+    }
+  }
+
+  &-graphic {
+    position: absolute;
+    top: 51%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 32vw;
+    overflow: hidden;
+    z-index: 1;
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: 1;
     }
   }
 }

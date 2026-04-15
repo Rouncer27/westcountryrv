@@ -6,6 +6,8 @@ import Wrapper from "../../common/shared/Wrapper.astro";
 import "./introPoints.scss";
 
 const { title, subTitle, points } = Astro.props.data;
+
+import mountains from "../../../assets/mountains.png";
 ---
 
 <div class="intro-points">
@@ -44,4 +46,7 @@ const { title, subTitle, points } = Astro.props.data;
       }
     </div>
   </Wrapper>
+  <div class="intro-points-graphic">
+    <img src={mountains.src} alt={"Mountain background"} />
+  </div>
 </div>

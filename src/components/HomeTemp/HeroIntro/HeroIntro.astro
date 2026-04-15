@@ -6,6 +6,8 @@ const { image } = Astro.props.data;
 
 const heroImageSrc = image?.node?.sourceUrl;
 const heroAlt = image?.node?.altText || "";
+
+import heroMountain from "../../../assets/hero-header-home.png";
 ---
 
 <div class="hero-intro">
@@ -20,6 +22,9 @@ const heroAlt = image?.node?.altText || "";
       inferSize={true}
       class="hero-intro-background-img"
     />
+  </div>
+  <div class="hero-intro-graphic">
+    <img src={heroMountain.src} alt={"Mountain background"} />
   </div>
 </div>
 
