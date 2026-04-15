@@ -24,7 +24,7 @@ const SubmitModal = () => {
     <div className="form-modal sumit-modal">
       <div ref={modalRef} className="form-modal-inner sumit-modal-inner">
         <div className="form-modal-inner-animation sumit-modal-inner-animation">
-          <BarLoader color="#d0b42d" width="300px" height="10px" />
+          <BarLoader color="#ea7f1d" width="300px" height="10px" />
         </div>
         <div className="form-modal-inner-content sumit-modal-inner-content">
           <p>Validating and sending your contact form. Please standby.</p>
