@@ -8,6 +8,8 @@ const { image, title, bio } = Astro.props.data;
 
 const imageSrc = image?.node?.sourceUrl;
 const imageAlt = image?.node?.altText || "";
+
+import mountainsTear from "../../../assets/mountain-path-grey-about.png";
 ---
 
 <div class="about-bio">
@@ -31,4 +33,7 @@ const imageAlt = image?.node?.altText || "";
       <div class="about-bio-content-bio" set:html={bio} />
     </div>
   </Wrapper>
+  <div class="about-bio-graphic">
+    <img src={mountainsTear.src} alt={"Mountain background"} />
+  </div>
 </div>

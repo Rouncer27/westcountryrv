@@ -3,6 +3,8 @@
 @use "../../../styles/global/paragraphs";
 
 .faqs-section {
+  background-color: #ece8e6;
+
   @media (min-width: 768px) {
     padding: 5rem 0;
   }

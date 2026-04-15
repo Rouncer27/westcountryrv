@@ -3,7 +3,9 @@
 @use "../../../styles/global/paragraphs";
 
 .image-content {
-  margin: 5rem auto;
+  margin: 0 auto;
+  padding: 9rem 0;
+  background-color: #ece8e6;
 
   &-image {
     width: calc(35% - 2.5rem);
