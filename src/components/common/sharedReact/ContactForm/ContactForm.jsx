@@ -28,7 +28,11 @@ const ContactForm = () => {
     lastName: "",
     yourEmail: "",
     phone: "",
-    comments: "",
+    address: "",
+    city: "",
+    postalCode: "",
+    country: "",
+    questions: "",
     _wpcf7_unit_tag: "wpcf7-f858-965",
   });
 
@@ -131,17 +135,63 @@ const ContactForm = () => {
               (error) => error.idref === "yourEmail",
             )}
           />
+          <Input
+            handler={(event) => handleOnChange(event, setFormData, formData)}
+            value={formData.address}
+            label="Address"
+            id="address"
+            type="text"
+            size="half"
+            placeholder="Address"
+            required={true}
+            error={formStatus.errors.find((error) => error.idref === "address")}
+          />
+          <Input
+            handler={(event) => handleOnChange(event, setFormData, formData)}
+            value={formData.city}
+            label="City"
+            id="city"
+            type="text"
+            size="half"
+            placeholder="City"
+            required={true}
+            error={formStatus.errors.find((error) => error.idref === "city")}
+          />
+          <Input
+            handler={(event) => handleOnChange(event, setFormData, formData)}
+            value={formData.postalCode}
+            label="Postal Code"
+            id="postalCode"
+            type="text"
+            size="half"
+            placeholder="Postal Code"
+            required={true}
+            error={formStatus.errors.find(
+              (error) => error.idref === "postalCode",
+            )}
+          />
+          <Input
+            handler={(event) => handleOnChange(event, setFormData, formData)}
+            value={formData.country}
+            label="Country"
+            id="country"
+            type="text"
+            size="half"
+            placeholder="Country"
+            required={true}
+            error={formStatus.errors.find((error) => error.idref === "country")}
+          />
           <Textarea
             handler={(event) => handleOnChange(event, setFormData, formData)}
-            value={formData.comments}
+            value={formData.questions}
             label="Please enter your questions in the space below and we would be pleased to contact your regarding our RV rental services:* "
-            id="comments"
+            id="questions"
             size="full"
-            placeholder="Comments"
+            placeholder="Questions"
             required={true}
             rows="10"
             error={formStatus.errors.find(
-              (error) => error.idref === "comments",
+              (error) => error.idref === "questions",
             )}
           />
         </fieldset>

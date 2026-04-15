@@ -5,8 +5,11 @@ const clearFormFields = (setFormData) => {
       lastName: "",
       yourEmail: "",
       phone: "",
-      locationPlan: "",
-      comments: "",
+      address: "",
+      city: "",
+      postalCode: "",
+      country: "",
+      questions: "",
       _wpcf7_unit_tag: "wpcf7-f858-965",
     };
   });
