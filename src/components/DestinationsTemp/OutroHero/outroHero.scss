@@ -2,12 +2,32 @@
 @use "../../../styles/global/headlines";
 @use "../../../styles/global/paragraphs";
 
-.outro-hero {
+.outro-hero-destinations {
   position: relative;
   min-height: 75rem;
   margin-bottom: 2rem;
 
-  &-image {
+  .outro-hero-graphic {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 7.11rem;
+    z-index: 10;
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: 1;
+    }
+  }
+
+  .outro-hero-image {
     position: absolute;
     top: 0;
     left: 0;
@@ -28,7 +48,7 @@
     }
   }
 
-  &-content {
+  .outro-hero-content {
     position: absolute;
     left: 0;
     bottom: 13.5rem;

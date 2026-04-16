@@ -6,9 +6,11 @@ const { image, content } = Astro.props.data;
 
 const heroImageSrc = image?.node?.sourceUrl;
 const heroAlt = image?.node?.altText || "";
+
+import whiteTear from "../../../assets/white-tear-destinations.png";
 ---
 
-<div class="outro-hero">
+<div class="outro-hero outro-hero-destinations">
   <div class="outro-hero-image">
     <div>
       <Image
@@ -25,5 +27,8 @@ const heroAlt = image?.node?.altText || "";
     <div>
       <div class="outro-hero-content" set:html={content} />
     </div>
+  </div>
+  <div class="outro-hero-graphic">
+    <img src={whiteTear.src} alt={"Mountain background"} />
   </div>
 </div>
