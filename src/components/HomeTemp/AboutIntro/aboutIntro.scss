@@ -30,8 +30,18 @@
     &-title {
       width: 100%;
 
+      &-icon {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 13rem;
+      }
+
       h2 {
         @extend .hl-one;
+        display: inline-block;
+        position: relative;
+        padding-right: 15rem;
         color: $secondaryColor;
       }
     }

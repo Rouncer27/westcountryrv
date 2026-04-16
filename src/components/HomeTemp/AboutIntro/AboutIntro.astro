@@ -17,7 +17,21 @@ const iconAlt = icon?.node?.altText || "";
   <Wrapper classes="about-intro-wrapper">
     <div class="about-intro-content">
       <div class="about-intro-content-title">
-        <h2>{title}</h2>
+        <h2>
+          {title}
+          <span class="about-intro-content-title-icon">
+            <Image
+              src={iconSrc}
+              alt={iconAlt}
+              format="webp"
+              widths={[800, 1200, 1600, 2000]}
+              sizes="100vw"
+              loading="eager"
+              inferSize={true}
+              class=""
+            />
+          </span>
+        </h2>
       </div>
       <div class="about-intro-content-paragraph" set:html={content} />
       <div class="about-intro-content-botton">
