@@ -41,27 +41,22 @@
           @extend .p-three;
           display: inline-block;
           padding: 1.5rem 0.5rem;
-          border-top: 0.2rem solid transparent;
-          border-bottom: 0.2rem solid transparent;
-          color: $greyBrownColor;
+          color: $tertiaryColor;
           text-transform: uppercase;
 
           @media (min-width: 1025px) {
-            padding: 0.5rem;
+            padding: 0.5rem 0.5rem;
           }
 
           &:hover {
-            color: $accentColor;
-            border-top-color: $accentColor;
-            border-bottom-color: $accentColor;
+            color: $tertiaryColor;
+            background-color: rgba(0, 0, 0, 0.2);
           }
         }
 
         a.main-nav-current {
-          font-weight: bold;
-          color: $accentColor;
-          border-top-color: $accentColor;
-          border-bottom-color: $accentColor;
+          color: $tertiaryColor;
+          background-color: rgba(0, 0, 0, 0.2);
 
           &:hover {
             cursor: default;
@@ -130,9 +125,9 @@
         margin-right: 0;
 
         a {
-          @extend .btn-one;
-          padding-left: 2.5rem;
-          padding-right: 2.5rem;
+          @extend .btn-two;
+          font-weight: normal;
+          padding: 1rem 1.5rem;
 
           &.main-nav-current {
             color: $whiteColor;

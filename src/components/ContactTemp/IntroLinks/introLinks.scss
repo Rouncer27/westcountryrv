@@ -11,6 +11,11 @@
   &-content {
     width: 100%;
     text-align: center;
+
+    p {
+      @extend .hl-two;
+      color: $primaryColor;
+    }
   }
 
   &-buttons {

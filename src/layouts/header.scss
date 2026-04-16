@@ -31,7 +31,7 @@
     z-index: 101;
 
     @media (min-width: 1025px) {
-      width: 22.5rem;
+      width: 20rem;
       margin-top: 1rem;
       margin-bottom: 1rem;
     }
@@ -60,7 +60,7 @@
 
     @media (min-width: 768px) {
       display: flex;
-      width: calc(100% - 22.5rem);
+      width: calc(100% - 20rem);
     }
   }
 
