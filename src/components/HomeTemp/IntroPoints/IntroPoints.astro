@@ -3,6 +3,7 @@
 import { Image } from "astro:assets";
 import Headline from "../../common/shared/Headline.astro";
 import Wrapper from "../../common/shared/Wrapper.astro";
+import Point from "./Point.astro";
 import "./introPoints.scss";
 
 const { title, subTitle, points } = Astro.props.data;
@@ -23,24 +24,11 @@ import mountains from "../../../assets/mountains.png";
           const iconAlt = point?.icon?.node?.altText || "";
 
           return (
-            <div class="intro-points-point">
-              <div class="intro-points-point-icon">
-                <Image
-                  src={iconSrc}
-                  alt={iconAlt}
-                  format="webp"
-                  widths={[800, 1200, 1600, 2000]}
-                  sizes="100vw"
-                  loading="eager"
-                  inferSize={true}
-                  class=""
-                />
-              </div>
-              <div
-                class="intro-points-point-content"
-                set:html={point.content}
-              />
-            </div>
+            <Point
+              content={point.content}
+              iconSrc={iconSrc}
+              iconAlt={iconAlt}
+            />
           );
         })
       }
@@ -50,3 +38,85 @@ import mountains from "../../../assets/mountains.png";
     <img src={mountains.src} alt={"Mountain background"} />
   </div>
 </div>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { SplitText } from "gsap/SplitText";
+  gsap.registerPlugin(SplitText);
+  gsap.registerPlugin(ScrollTrigger);
+
+  const trigger = document.querySelector(".intro-points");
+  const title = document.querySelectorAll(".intro-points h2");
+  const subTitle = document.querySelectorAll(".intro-points h3");
+  const points = document.querySelectorAll(".intro-points-point");
+
+  const mainTitle = new SplitText(title, {
+    type: "words, chars",
+  });
+
+  const mainSubTitle = new SplitText(subTitle, {
+    type: "words, chars",
+  });
+
+  const allDoneTitle = () => {
+    mainTitle.revert();
+  };
+
+  const allDoneSubTitle = () => {
+    mainSubTitle.revert();
+  };
+
+  gsap.set(title, { perspective: 400 });
+  gsap.set(subTitle, { perspective: 400 });
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: trigger,
+      start: "top 40%",
+      markers: false,
+    },
+  });
+
+  tl.add("start")
+    .from(mainTitle.chars, {
+      autoAlpha: 0,
+      rotation: -20,
+      x: -10,
+      duration: 0.4,
+      ease: "back.out(1.7)",
+      stagger: {
+        each: 0.02,
+      },
+      onComplete: allDoneTitle,
+    })
+    .from(
+      mainSubTitle.chars,
+      {
+        autoAlpha: 0,
+        rotation: -20,
+        x: -10,
+        duration: 0.4,
+        ease: "back.out(1.7)",
+        stagger: {
+          each: 0.02,
+        },
+        onComplete: allDoneSubTitle,
+      },
+      "start+=0.4",
+    )
+    .fromTo(
+      points,
+      { autoAlpha: 0, y: 200 },
+      {
+        duration: 1,
+        autoAlpha: 1,
+        y: 0,
+        ease: "power2.out",
+        stagger: {
+          each: 0.5,
+        },
+      },
+      "start",
+    );
+</script>
