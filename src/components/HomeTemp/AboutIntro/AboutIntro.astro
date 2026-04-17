@@ -54,3 +54,44 @@ const iconAlt = icon?.node?.altText || "";
     </div>
   </Wrapper>
 </div>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  const trigger = document.querySelector(".about-intro");
+  const imageOne = document.querySelector(".about-intro-image");
+  const imageTwo = document.querySelector(".about-intro-content");
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: trigger,
+      start: "top 50%",
+      markers: false,
+    },
+  });
+
+  tl.add("start")
+    .fromTo(
+      imageOne,
+      { autoAlpha: 0, x: -200 },
+      {
+        duration: 1,
+        autoAlpha: 1,
+        x: 0,
+        ease: "power2.out",
+      },
+    )
+    .fromTo(
+      imageTwo,
+      { autoAlpha: 0, x: 200 },
+      {
+        duration: 1,
+        autoAlpha: 1,
+        x: 0,
+        ease: "power2.out",
+      },
+      "start+=0.5",
+    );
+</script>

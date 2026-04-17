@@ -53,3 +53,71 @@ const imageAlt = mainHeroImage?.node?.altText || "";
     }
   </div>
 </div>
+
+<script>
+  // @ts-nocheck
+  import { gsap } from "gsap";
+  import { SplitText } from "gsap/SplitText";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(SplitText);
+
+  const trigger = document.querySelector(".gallery");
+  const image = document.querySelector(".gallery-main-image-container img");
+  const title = document.querySelectorAll(".gallery-main-content p");
+  const images = document.querySelectorAll(
+    ".gallery-images .gallery-image img",
+  );
+
+  const mainTitle = new SplitText(title, {
+    type: "words, chars",
+  });
+
+  const allDoneTitle = () => {
+    mainTitle.revert();
+  };
+
+  gsap.set(title, { perspective: 400 });
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: trigger,
+      start: "top 50%",
+      markers: false,
+    },
+  });
+
+  tl.add("start")
+    // .from(image, { filter: "blur(100px)", duration: 2.2 }, "start")
+    .from(
+      mainTitle.chars,
+      {
+        autoAlpha: 0,
+        rotation: -20,
+        x: -10,
+        duration: 0.4,
+        ease: "back.out(1.7)",
+        stagger: {
+          each: 0.02,
+        },
+        onComplete: allDoneTitle,
+      },
+      "start+=0.5",
+    );
+
+  images.forEach((img, i) => {
+    const isEven = i % 2 === 0;
+
+    gsap.from(img, {
+      scrollTrigger: {
+        trigger: img,
+        start: "top 60%",
+        toggleActions: "play none none none",
+      },
+      autoAlpha: 0,
+      x: isEven ? -100 : 100, // Left if even, right if odd
+      duration: 1.2,
+      ease: "power2.out",
+    });
+  });
+</script>
