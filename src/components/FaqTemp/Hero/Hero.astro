@@ -27,3 +27,11 @@ import heroMountain from "../../../assets/gray-tear-up-faq.png";
     <img src={heroMountain.src} alt={"Mountain background"} />
   </div>
 </div>
+
+<script>
+  // @ts-nocheck
+  import { gsap } from "gsap";
+  const image = document.querySelector(".hero-image img");
+  const tl = gsap.timeline();
+  tl.add("start").from(image, { filter: "blur(100px)", duration: 1 }, "start");
+</script>
