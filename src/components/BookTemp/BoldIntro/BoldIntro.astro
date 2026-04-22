@@ -36,3 +36,21 @@ const iconAlt = icon?.node?.altText || "";
     <div class="bold-content-paragraph" set:html={content} />
   </Wrapper>
 </div>
+
+<script>
+  import { gsap } from "gsap";
+  const icon = document.querySelectorAll(".bold-content-icon-container img");
+  const tlIcon = gsap.timeline({
+    repeat: -1,
+    repeatDelay: 1.5, // A longer delay feels more natural for a sway
+    delay: 0, // Staggered start
+    defaults: { duration: 0.5, ease: "power1.inOut" }, // Slower duration for rocking
+  });
+
+  tlIcon
+    .to(icon, { rotation: 10 }) // Tilt right
+    .to(icon, { rotation: -10 }) // Tilt left
+    .to(icon, { rotation: 7 }) // Smaller tilt right
+    .to(icon, { rotation: -7 }) // Smaller tilt left
+    .to(icon, { rotation: 0 }); // Back to center
+</script>
