@@ -19,7 +19,7 @@ import mountains from "../../../assets/mountains.png";
     </div>
     <div class="intro-points-container">
       {
-        points.map((point) => {
+        points.map((point, index) => {
           const iconSrc = point?.icon?.node?.sourceUrl;
           const iconAlt = point?.icon?.node?.altText || "";
 
@@ -28,6 +28,7 @@ import mountains from "../../../assets/mountains.png";
               content={point.content}
               iconSrc={iconSrc}
               iconAlt={iconAlt}
+              index={index}
             />
           );
         })
@@ -119,4 +120,29 @@ import mountains from "../../../assets/mountains.png";
       },
       "start",
     );
+
+  //icons
+
+  const icons = document.querySelectorAll(".intro-points-point-icon img");
+
+  const tlIcons = gsap.timeline();
+
+  tlIcons.add(() => {
+    icons.forEach((icon, index) => {
+      const rock = gsap.timeline({
+        repeat: -1,
+        repeatDelay: 1.5, // A longer delay feels more natural for a sway
+        delay: index * 0.3, // Staggered start
+        defaults: { duration: 0.5, ease: "power1.inOut" }, // Slower duration for rocking
+      });
+
+      // Rocking movement
+      rock
+        .to(icon, { rotation: 10 }) // Tilt right
+        .to(icon, { rotation: -10 }) // Tilt left
+        .to(icon, { rotation: 7 }) // Smaller tilt right
+        .to(icon, { rotation: -7 }) // Smaller tilt left
+        .to(icon, { rotation: 0 }); // Back to center
+    });
+  });
 </script>

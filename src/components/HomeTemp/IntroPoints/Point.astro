@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 
-const { content, iconSrc, iconAlt } = Astro.props;
+const { content, iconSrc, iconAlt, index } = Astro.props;
 ---
 
 <div class="intro-points-point">
@@ -19,3 +19,25 @@ const { content, iconSrc, iconAlt } = Astro.props;
   </div>
   <div class="intro-points-point-content" set:html={content} />
 </div>
+
+<!-- <script>
+  // @ts-nocheck
+  import { gsap } from "gsap";
+
+  const icons = document.querySelectorAll(".intro-points-point-icon img");
+
+  icons.forEach((icon) => {
+    const tl = gsap.timeline({
+      repeat: -1,
+      repeatDelay: 1, // Wait 2 seconds between shakes
+      defaults: { duration: 0.07, ease: "power1.inOut" },
+    });
+
+    // Rapid oscillations
+    tl.to(icon, { x: -3 })
+      .to(icon, { x: 3 })
+      .to(icon, { x: -3 })
+      .to(icon, { x: 3 })
+      .to(icon, { x: 0 }); // Back to center
+  });
+</script> -->
