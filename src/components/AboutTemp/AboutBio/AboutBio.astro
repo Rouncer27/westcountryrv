@@ -37,3 +37,44 @@ import mountainsTear from "../../../assets/mountain-path-grey-about.png";
     <img src={mountainsTear.src} alt={"Mountain background"} />
   </div>
 </div>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  const trigger = document.querySelector(".about-bio");
+  const imageOne = document.querySelector(".about-bio-image");
+  const imageTwo = document.querySelector(".about-bio-content");
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: trigger,
+      start: "top 50%",
+      markers: false,
+    },
+  });
+
+  tl.add("start")
+    .fromTo(
+      imageOne,
+      { autoAlpha: 0, x: -200 },
+      {
+        duration: 1,
+        autoAlpha: 1,
+        x: 0,
+        ease: "power2.out",
+      },
+    )
+    .fromTo(
+      imageTwo,
+      { autoAlpha: 0, x: 200 },
+      {
+        duration: 1,
+        autoAlpha: 1,
+        x: 0,
+        ease: "power2.out",
+      },
+      "start+=0.5",
+    );
+</script>
