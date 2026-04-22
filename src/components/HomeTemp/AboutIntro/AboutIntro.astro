@@ -94,4 +94,19 @@ const iconAlt = icon?.node?.altText || "";
       },
       "start+=0.5",
     );
+
+  const icon = document.querySelectorAll(".about-intro-content-title-icon img");
+  const tlIcon = gsap.timeline({
+    repeat: -1,
+    repeatDelay: 1.5, // A longer delay feels more natural for a sway
+    delay: 0, // Staggered start
+    defaults: { duration: 0.5, ease: "power1.inOut" }, // Slower duration for rocking
+  });
+
+  tlIcon
+    .to(icon, { rotation: 10 }) // Tilt right
+    .to(icon, { rotation: -10 }) // Tilt left
+    .to(icon, { rotation: 7 }) // Smaller tilt right
+    .to(icon, { rotation: -7 }) // Smaller tilt left
+    .to(icon, { rotation: 0 }); // Back to center
 </script>
