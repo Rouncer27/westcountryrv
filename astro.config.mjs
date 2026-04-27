@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
+import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
@@ -9,8 +10,8 @@ export default defineConfig({
       devSourcemap: true, // ✅ Enables CSS/SCSS source maps for better debugging
     },
   },
-  site: "https://westcountryrv.netlify.app/",
-  integrations: [react()],
+  site: "https://westcountryrvrentals.com/",
+  integrations: [react(), sitemap()],
   image: {
     domains: ["westcountryrv.swbdatabases3.ca/"],
     remotePatterns: [{ protocol: "https" }],
