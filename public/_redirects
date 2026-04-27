@@ -1,0 +1,15 @@
+https://www.westcountryrvrentals.com/ https://westcountryrvrentals.com/:splat 301!
+http://www.swestcountryrvrentals.com/ https://westcountryrvrentals.com/:splat 301!
+http://westcountryrvrentals.com/ https://westcountryrvrentals.com/:splat 301!
+
+https://westcountryrv.netlify.app/* https://westcountryrvrentals.com/:splat 301!
+
+/TrailerRentals.html /book-your-trip
+
+/WhereWeGo.html /destinations
+
+/WhereWeGoLongTerm.html /destinations
+
+/ContactUs.html /contact
+
+/TermsAndConditions.html /privacy-policy
