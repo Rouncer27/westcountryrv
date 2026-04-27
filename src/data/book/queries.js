@@ -38,6 +38,16 @@ export const Mountain_Callout_Query = `
     }
 `;
 
+export const Rental_Agreement_Query = `
+   	rentalAgreement: rentalAgreementComponent {
+        rentalAgreement {
+            node {
+            mediaItemUrl
+            }
+        }
+    }
+`;
+
 export const Image_Row_Query = `
    	imageRow: imageRowComponent {
         imageOne {

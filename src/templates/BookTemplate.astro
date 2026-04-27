@@ -13,6 +13,7 @@ import {
   Hero_Query,
   Bold_Intro_Query,
   Mountain_Callout_Query,
+  Rental_Agreement_Query,
   Image_Row_Query,
   Page_Quote_Query,
   Image_Row_Two_Query,
@@ -38,6 +39,7 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
                 ${Hero_Query}
                 ${Bold_Intro_Query}
                 ${Mountain_Callout_Query}
+                ${Rental_Agreement_Query}
                 ${Image_Row_Query}
                 ${Page_Quote_Query}
                 ${Image_Row_Two_Query}
@@ -71,7 +73,7 @@ const {
   <Hero data={bookTemplate.hero} />
   <BoldIntro data={bookTemplate.boldIntro} />
   <MountainCallout data={bookTemplate.mountainCallout} />
-  <BookingEmbed />
+  <BookingEmbed data={bookTemplate.rentalAgreement} />
   <ImageRow data={bookTemplate.imageRow} />
   <PageQuote data={bookTemplate.pageQuote} />
   <ImageRow data={bookTemplate.imageRowTwo} />
