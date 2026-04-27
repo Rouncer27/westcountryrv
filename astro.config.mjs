@@ -5,6 +5,9 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
+  build: {
+    inlineStylesheets: "always",
+  },
   vite: {
     css: {
       devSourcemap: true, // ✅ Enables CSS/SCSS source maps for better debugging
